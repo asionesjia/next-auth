@@ -1,6 +1,6 @@
 {
   "name": "@asiones/auth-core",
-  "version": "0.41.0",
+  "version": "0.42.0",
   "description": "Authentication for the Web.",
   "keywords": [
     "authentication",

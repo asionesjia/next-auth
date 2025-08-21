@@ -170,10 +170,32 @@ export async function handleOAuth(
         if (!provider.checks.includes("pkce")) {
           args[1].body.delete("code_verifier")
         }
-        // Add invite_code parameter if present in params
+        
+        // Add invite_code parameter if present in params or state
+        let inviteCode: string | undefined
+        
+        // First, check direct params
         if (params?.invite_code && typeof params.invite_code === "string") {
-          args[1].body.set("invite_code", params.invite_code)
+          inviteCode = params.invite_code
         }
+        
+        // If not found in params, try to extract from state
+        if (!inviteCode && params?.state && typeof params.state === "string") {
+          try {
+            const stateData = JSON.parse(params.state)
+            if (stateData && typeof stateData === "object" && stateData.invite) {
+              inviteCode = stateData.invite
+            }
+          } catch {
+            // Ignore JSON parsing errors, state might not be JSON
+          }
+        }
+        
+        // Add invite_code to request if found
+        if (inviteCode) {
+          args[1].body.set("invite_code", inviteCode)
+        }
+        
         return (provider[customFetch] ?? fetch)(...args)
       },
     }
