@@ -1,6 +1,6 @@
 {
   "name": "@asiones/next-auth",
-  "version": "5.0.0-beta.30",
+  "version": "5.0.0-beta.31",
   "description": "Authentication for Next.js",
   "homepage": "https://nextjs.authjs.dev",
   "repository": "https://github.com/nextauthjs/next-auth.git",
@@ -89,7 +89,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@asiones/auth-core": "^0.41.0"
+    "@asiones/auth-core": "^0.42.0"
   },
   "peerDependencies": {
     "@simplewebauthn/browser": "^9.0.1",
