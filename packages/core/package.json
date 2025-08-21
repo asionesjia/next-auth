@@ -66,6 +66,9 @@
     }
   },
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@panva/hkdf": "^1.2.1",
     "jose": "^6.0.6",
