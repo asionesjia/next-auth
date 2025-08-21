@@ -170,6 +170,10 @@ export async function handleOAuth(
         if (!provider.checks.includes("pkce")) {
           args[1].body.delete("code_verifier")
         }
+        // Add invite_code parameter if present in params
+        if (params?.invite_code && typeof params.invite_code === "string") {
+          args[1].body.set("invite_code", params.invite_code)
+        }
         return (provider[customFetch] ?? fetch)(...args)
       },
     }
