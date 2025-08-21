@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import type { ProviderId, ProviderType } from "@auth/core/providers"
-import type { LoggerInstance, Session } from "@auth/core/types"
-import { AuthError } from "@auth/core/errors"
+import type { ProviderId, ProviderType } from "@asiones/auth-core/providers"
+import type { LoggerInstance, Session } from "@asiones/auth-core/types"
+import { AuthError } from "@asiones/auth-core/errors"
 
 /** @todo */
 class ClientFetchError extends AuthError {}

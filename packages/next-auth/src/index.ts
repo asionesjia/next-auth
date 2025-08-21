@@ -67,13 +67,13 @@
  * @module next-auth
  */
 
-import { Auth, customFetch } from "@auth/core"
+import { Auth, customFetch } from "@asiones/auth-core"
 import { reqWithEnvURL, setEnvDefaults } from "./lib/env.js"
 import { initAuth } from "./lib/index.js"
 import { signIn, signOut, update } from "./lib/actions.js"
 
-import type { Awaitable, Session } from "@auth/core/types"
-import type { ProviderId } from "@auth/core/providers"
+import type { Awaitable, Session } from "@asiones/auth-core/types"
+import type { ProviderId } from "@asiones/auth-core/providers"
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
@@ -90,7 +90,7 @@ import type {
   NextAuthRequest,
   NextAuthMiddleware,
 } from "./lib/index.js"
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@asiones/auth-core/errors"
 
 export { customFetch }
 
@@ -100,7 +100,7 @@ export type {
   Profile,
   DefaultSession,
   User,
-} from "@auth/core/types"
+} from "@asiones/auth-core/types"
 
 type AppRouteHandlers = Record<
   "GET" | "POST",
@@ -351,7 +351,7 @@ export interface NextAuthResult {
  *  @example
  * ```ts title="auth.ts"
  * import NextAuth from "next-auth"
- * import GitHub from "@auth/core/providers/github"
+ * import GitHub from "@asiones/auth-core/providers/github"
  *
  * export const { handlers, auth } = NextAuth({ providers: [GitHub] })
  * ```
@@ -361,7 +361,7 @@ export interface NextAuthResult {
  * @example
  * ```ts title="auth.ts"
  * import NextAuth from "next-auth"
- * import GitHub from "@auth/core/providers/github"
+ * import GitHub from "@asiones/auth-core/providers/github"
  *
  * export const { handlers, auth } = NextAuth(async (req) => {
  *   console.log(req) // do something with the request
